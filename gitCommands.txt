@@ -1,0 +1,234 @@
+git config --global user.name "davidbradford"
+git config --global user.email "davidbradford510@comcast.net"
+
+Verify setup 
+
+git config --list
+
+user.name=davidbradford
+user.email=davidbradford510@comcast.net
+
+Sets origin of this repository
+
+git remote add origin https://github.com/davidbradford/datasciencecoursera
+
+git config --list
+
+user.name=davidbradford
+user.email=davidbradford510@comcast.net
+remote.origin.url=https://github.com/davidbradford/datasciencecoursera
+
+git clone https://github.com/jtleek/datasharing
+
+Managing local repository - do these before committing
+
+Adds all new files 
+
+git add . 
+
+Updates tracking for files that changed names or were deleted
+
+git add -u 
+
+Does both of add . and add -u
+
+git add -A
+
+Do this before remote committing - Updaees changes you want as an itermediate version. This only updates the local repository.
+
+git commit -m "Added HelloWorld.md"
+
+To push to remote github repository. Pushing to master
+
+git push --set-upstream origin master
+
+Sometimes working on a project with a version being used by many people.
+
+You may not want to edit that version.
+
+So, you can create a branch with the command
+
+git checkout -b branchname
+
+To see which branch you are on
+
+git branch
+
+git checkout master
+
+Pull Request
+
+If you fork someones repo or have multiple branches you will be working on separately 
+
+Sometimes you want to merge in your changes into the other repo/branch
+
+To do so you need to send a pull Request
+
+This is a feature of github. Go the branch you are working on. Click on the link Pull request on kupper right hand side of page. On next page, click on create a pull request.
+
+Help
+
+help.github.com
+Google/Stack Overflow
+
+Git Markdown Basics
+
+Extension is .md
+
+Heading
+
+## Large Headding
+### Small Heading
+
+Unordered list - Bulleted
+
+* First Item
+* Second Item
+* Third Item
+
+To get RStudio Markdown help click MD for a quick guide
+
+R Packages
+
+Basic packages when install R from CRAN Comprehensive R Atchive Network - "base" R system. base R comes with basic functionality. Implements the R language.
+
+R is so useful because of its many addon packages.
+
+R packages are developed and published by the larger R community
+
+To get list of available packages in Request
+
+a<-available.packages()
+head(rownames(a),3)
+
+Approximately 5200 packages on CRAN
+
+On website, click on Task Views link to see listed by related topic
+
+To install.packages use install.packages("name")
+
+Example install.packages("slidify")
+
+Will install slidify, ggplot2 and devtools and all package dependancies
+
+Example install.packages(c("slidify","ggplot2", "devtools"))
+
+To install slidify from github
+
+library("devtools")
+install_github('slidify', 'ramnathv')
+install_github('slidify', 'ramnathv')
+Warning message:
+Username parameter is deprecated. Please use ramnathv/slidifyLibraries 
+
+To use libraries. note no quotes or library will not be loaded properly
+
+library(slidify)
+library(slidifyLibraries)
+
+Too see all libraries
+
+library(ggplot2)
+search()
+
+R Tools is for bilding R packages in Windows
+
+http://cran.r-project.org/bin/windows/Rtools/
+
+Need devtools. Try to see if installed. find.package("devtools") 
+  
+Week 3 Data Science Questions 
+
+Descriptive
+
+Trying to describe the data not trying to make any decisions at this point. First kind of data analysis ever performed and mostly applied when talking about census data. The description and interpretation of this data occurs in different steps. Describe the data and interpret what you have seen. Descriptions cannot be generalized with out additiona statistical modeling.Example, US Census. Google ngrams count of words in books scraped by Google. Description not analysis. Good for discovering connections between data. Good for defining future studies. Eploratory analysis is not usually the final say. Exploritory analyses alone should not be used for generalizing or predicting. Correlation does not imply causation. 
+
+Inferential Analysis:
+
+Trying to take a small aoung to data to say something about a bigger population. Inference is commonly the goal of statistical models. Inference involves estimating both the quatity you care about and  your uncertainty bout your estimate. Infernence depensts heavily on both the population and the sampling scheme.
+
+Predictive analysis
+
+Goal: To uses the data on some objects to predict the values of another objects
+If X predicts Y it does not mean that X causes Y. Accurate prediction depends heavily on measuring the right variables. Although there are better and worse prediction model, more data and a simple model works really well. Prediction is very hard, expecially about the future references.
+
+Casual Analysis is the next level up. Very hard to identify causation. There are approaches to infering causation in non-randomized studies. But they are complicated and sesitive to assumptions. Causal relationships are usually identified as average effects. But, may not apply to every individual. Causal models are usually the gold standard for data analysis.
+
+About Causal Analysis. Goal: To find out what happens to one variable when you make a change to another variable. Usually randomized studies are required to identify causation. There are approaches to inferring causation in no-randomized studies but they are complicated and sensitive to assumptions. 
+
+Mechanistic analysis is not used very much in Data Science. Understand exact changes in variables that lead to changes in other variables.  Indredibly hard to do except in simple situations. usually modeled by a deterministic set of equations (physical/engineering Science. Generally the random component of the data is measurement error. If the equations are known but the parameters are not, the may be inferred by with data analysis.
+
+What is data? Data are values of qualitative or quantitative variables  belonging to a set of items. Set of items sometimes called the population - The set of objects you are interested in. Variables are a measurements or characteristic of an item.
+
+Qualitiave Variables: Country of origin, sex, treatment
+quantitative Variables: Height, weight, blood pressure
+
+Data are the second most inportant thing in data science. The most important thing is the question you are trying to answer. Often, the data will limit or enable the questions. But having data can't save you if you don't have a question.
+
+What about Big Data. Big Data is different for different data. For a person without a computer, a small data set will be what they will think is big data whereas a person with access to Amazon EC2, billions of rows of data will be big data.Big question, what amount of data do you really need? Big or small, you need the right data. The data may not contain the answer. The combination of smae data and an aching desire for an answer does not ensure that a reasonable answer can be extracted from a given body of data.
+
+Exprimental Design
+
+Bad experiment design -> catasrophic results. First care about the data analysis/experiment design. Know about and care about the design - cata cleaning to data analysis matters! Regardless of the plan, you should share it - your code and data on GitHub for validation or non validation or figshare.com. Leek Group has designed a data sharing plan on GitHub. Covers acquiring and making data available to other people. 
+
+Formulate your questions in advance. Question - Does changing the text on your website improve donations?
+
+Experiment.
+
+Randomly show visitors one version or another or many?
+Measure how much they donate.
+Determin which is better.
+
+This course track is a scientific disciplin. A scientific disciplin requires that you are answering a specific question. 
+
+Statistical inference. Population, probability Descriptive statistics, sample.
+
+Population - all possible donors.
+Select a small subset of the population with a probability argument to decide whether to show them one version or another of the website.
+This would result in a sample of a much smaller sample of the people who had observed the webstie.  
+Then calculate descriptive statistics such as the total amount of donations over a certain number of visits. Or the average number of donations over a certain number of visits.
+Then use inferential statistics to decide if the statistics that they described in the small population would play out in the same way if they applied it to the population.
+
+Variability, if the average amount/number of donations varies widely over multiple runs of the experiment, it may be hard to generalize. If the variability is small, then you may be able to generalize. 
+
+Issue of confounding.
+
+Show size --> Literacy measured correlation. You might observe that people with smaller shoe size have less literacy.
+
+What you might be missing is that A is the variable that is actually causing the this relationship.
+
+          S   L
+          ^   ^
+            A
+For example, when you are younger, you have a small show size and less literacy. So, Age may be the confounder for the relationship between shoe size and Literacy. Need to pay attention to other variables that might be causing the relationship. Correlation is not causation. If we are to conclude that correlation is causation, we have to preclude the possibility that there is not a confounder.
+
+How to deal with potential confounders. Randomization and blocking. If you can (and want to) fix a variable. For example, wesite always says Obama 2014 on it. If you do not fix a variable, stratify it. Suppose you have two websites, If you are testing sign up phrases and have two website colors, use both phrases equally on both colors. If you dan't fix a variable, randomize it. What that does is balance the distribution of the confounding variable. This will determine if the difference in observation will predict the outcome.
+
+Prediction study has slightly different issues that come up in the inferential case.
+
+Start with a population of individuals and not possible to collect information about all the individuals in the population. But you want to predict something about them. For example we might have some people and we measure something about their genome and want to predict whether they will respond to chemo. So we collect some sample of the population and we might get some people who responded to chemo and some who did not respond - a training set. Then we want to build a predictor function so that if we get a new individual, we can predict if they will respond to chemo or not respond. We will have to use probability and sampling and their might be some confounding variables when we are building the prediciton function. 
+
+Prediction vs inference. Another issue, prediction is slightly more challenging than inference. If the means are close in two different populations and you take a mesurement, if the measurement is close to both means, it is hard to determine which population the measurement comes from. But if the mean populations are far apart then a measurement can be easier to determing which population it comes from. For predictions you need the means to be more distant from each other. 
+
+For predition there are sevaral key quantities. 
+
+Sensitivity    -> Pr(positive test | disease )
+Specifity      -> Pr(negative test | no disease )
+Positive Predictive Value -> Pr( disease | positive test )
+Negative Predictive Valuse -> Pr( no disease | negative test )
+Accuracy -> Pr( correct outcome )
+
+Data Dredging. Keep going until you find the result you like. Ignores that you tried many similar experim
+
+Good Expriments Have Replication - Reprodceable
+Measure Variability compared to the "signal they are looking for" that is large variablity in observations indicates no/less predictive Value
+Good experiments generalize to the problem you care about
+Are transparent in their code and in their data
+Prediction is not inference. Both can be important but depends on what your appilcation is.
+Beware of data dredging. 
+
+Quiz 3
+
+
+
+
